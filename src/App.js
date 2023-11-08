@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route,} from "react-router-dom";
+import React from 'react';
+import { Helmet } from 'react-helmet';
+
+import LogIn from './components/LogIn';
+import ForgotPassword from './components/ForgotPassword';
+import Dashboard from './components/Dashboard';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="Apps">
+      <Helmet>  
+        <meta name="description" content="This is a dynamically added meta description." />  
+      </Helmet> 
+      
+
+      {/* <header className="App-header">Title will be React Helmet Tutorial</header>  */}
+
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" exact element={<LogIn />} />
+          <Route path="/ForgotPassword" element={<ForgotPassword />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
+        </Routes>
+        
+      </BrowserRouter>
+      
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet';
 import LogIn from './components/LogIn';
 import ForgotPassword from './components/ForgotPassword';
 import Dashboard from './components/Dashboard';
+import Dropdown from './components/Dropdown';
 import './App.css';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" exact element={<LogIn />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/Dropdown" element={<Dropdown />} />
         </Routes>
         
       </BrowserRouter>

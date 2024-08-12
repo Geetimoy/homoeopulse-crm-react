@@ -9,11 +9,36 @@ import logoLight from '../images/logo-light.png';
 import profileImg from '../images/profile.png'
 
 import MyCarousel from './MyCarousel';
+import ContactForm from './ContactForm';
+
+import SliderRating from './SliderRating';
+
+import React, { useState } from 'react';
+import Select from 'react-select';
 
 
 function Dashboard() {
   const data = localStorage.getItem('myData');
   const obj = JSON.parse(data);
+
+  const handleRatingChange = (value) => {
+    console.log('Rating changed:', value);
+    // You can handle the rating change here
+  };
+
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
+  const options = [
+    { value: 'option1', label: 'Option 1' },
+    { value: 'option2', label: 'Option 2' },
+    { value: 'option3', label: 'Option 3' },
+    { value: 'option4', label: 'Option 4' },
+  ];
+
+  const handleChange = (selected) => {
+    setSelectedOptions(selected);
+  };
+
   return(
     <div id='layout-wrapper'>
       <header id="page-topbar">
@@ -104,6 +129,27 @@ function Dashboard() {
                       </div>
                   </div>
               </div>
+            </div>
+            <div className='md:container'>
+              <div className='row'>
+                <div className='md:container md:mx-auto'>
+                  <ContactForm/>
+                </div>
+              </div>
+            </div>
+            <div className='row'>
+              <div>
+                <h1>Rate this:</h1>
+                <SliderRating onChange={handleRatingChange} />
+              </div>
+            </div>
+            <div>
+            <Select
+        isMulti
+        value={selectedOptions}
+        onChange={handleChange}
+        options={options}
+      />
             </div>
           </div>
         </div>

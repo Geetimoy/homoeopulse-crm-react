@@ -114,3 +114,11 @@
   -webkit-box-shadow: 0 0 13px 0 rgba(236,236,241,.44);
   box-shadow: 0 0 13px 0 rgba(236,236,241,.44);
 }
+
+.star.full{
+  color: red;
+}
+
+.star.half{
+  color: red;
+}
